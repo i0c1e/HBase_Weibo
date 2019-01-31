@@ -95,7 +95,7 @@ public class WBInboxDao {
         TableName tableName = TableName.valueOf("hadoop:inbox");
         Table table = conn.getTable(tableName);
 
-        Delete delete = new Delete(Bytes.toBytes(starID));
+        Delete delete = new Delete(Bytes.toBytes(fanID));
         byte[] family = Bytes.toBytes("info");
         byte[] column = Bytes.toBytes(starID);
         delete.addColumns(family,column);
