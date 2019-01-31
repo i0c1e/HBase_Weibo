@@ -2,8 +2,6 @@ package com.victor.controller;
 
 import com.victor.service.WBService;
 
-import java.io.IOException;
-
 /**
  * 微博控制器
  */
@@ -25,9 +23,46 @@ public class WBController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void publish(String userStar, String content) {
+        try {
+            wbService.start();
+            wbService.publish(userStar,content);
+            wbService.end();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void attend(String fanID, String starID) {
+        try {
+            wbService.start();
+            wbService.attend(fanID,starID);
+            wbService.end();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void viewContent(String fanID, String starID) {
+        try {
+            wbService.start();
+            wbService.viewContent(fanID,starID);
+            wbService.end();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void cancelAttendUser(String fanID, String starID) {
+        try {
+            wbService.start();
+            wbService.cancelAttendUser(fanID,starID);
+            wbService.end();
+            System.out.println(fanID+" 不再关注 "+starID);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
